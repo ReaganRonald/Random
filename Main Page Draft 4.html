@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<HTML>
+
+<head>
+<link rel="stylesheet" href="CUI/css/cui.css"/>
+<title>Recruitment Tracker</title>
+<style>
+
+body {
+	padding: 30px;
+}
+
+.dropbtn {
+    background-color: #bcbfc4;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.table {
+  margin-bottom:15px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #b9bfc9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #909293;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: }
+
+.show {display:block;}
+</style>
+</head>
+<body>
+
+
+
+			<ul>
+			  <li><a class="" href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%205.html">Java Developer</a></li>
+			  <li><a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/System_Engineer_Draft2.html">System Engineer</a></li>
+			  <li><a href="#contact">Project Manager</a></li>
+			  <li><a href="#about">PMO Analyst</a></li>
+				<li><a href="#about">PMO Manager</a></li>
+				<li><a href="#about">DevOps</a></li>
+				<li><a href="#about">Technical Tester</a></li>
+				<li><a href="#about">DBA Oracle</a></li>
+			</ul>
+
+<strong> <h1 align="center"> <u> Recruitment Tracker </u> </strong> </h1 align="centre">
+
+
+
+<br />
+
+<br />
+<input type="text" name="search" placeholder="Search">
+<br />
+<br />
+<table id="Table" class="cui-data-table" border "black">
+	<thead>
+<tr class="cui-data-table__head-row">
+ <th class="cui-data-table__head-cell"> No. </th> <th class="cui-data-table__head-cell"> Role </th> <th class="cui-data-table__head-cell">  Applications </th> <th class="cui-data-table__head-cell"> Department/Project </th> <th class="cui-data-table__head-cell"> Comment       </th> <th class="cui-data-table__head-cell"> Date Requested </th> <th class="cui-data-table__head-cell"> Application Stage </th> <th class="cui-data-table__head-cell"> First Interview </th>     <th class="cui-data-table__head-cell"> Second Interview </th> <th class="cui-data-table__head-cell"> Reject </th> <th class="cui-data-table__head-cell"> Offer </th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<div class="dropdown">
+<button onclick="myFunction()" class="cui-button">Go To</button>
+  <div id="myDropdown" class="dropdown-content">
+  <a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%204.html" class="button">Java Developer</a>
+  <a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20System%20Engineer%20Draft%201.html" class="button">System Engineer</a>
+	<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Project%20Manager.html" class="button">Project Manager</a>
+  <a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20PMO%20Analyst.html" class="button">PMO Analyst</a>
+	<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20PMO%20Manager.html" class="button">PMO Manager</a>
+  <a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20DevOps.html" class="button">DevOps </a>
+  <a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Technical%20Tester.html" class="button">Technical Tester</a>
+	<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20DBA%20Oracle.html" class="button">DBA - Oracle</a>
+
+
+  </div>
+</div>
+<button class="cui-button" onclick="clearLocalStorage()"> Clear </button>
+ <a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Form_main%20Draft%202.html" class="button"> <button class="cui-button" > Update above table </button></a>
+
+
+
+<script src="menu-toggle.js"></script>
+<script>
+
+function clearLocalStorage() {
+		localStorage.clear();
+}
+
+function generaterow(rowtoload, department){
+	function generatecell(){
+var cell = document.createElement("td");
+cell.className = "cui-data-table__cell";
+return cell
+	}
+	var row1  = JSON.parse( localStorage.getItem(rowtoload))
+console.log(row1)
+var table = document.querySelector("#Table tbody")
+var row = document.createElement("tr")
+row.className="cui-data-table__row";
+var rolecol = generatecell()
+var applicationscol = generatecell()
+var departmentscol = generatecell()
+var commentcol = generatecell()
+var numbercol = generatecell()
+var daterequestedcol = generatecell()
+var Applicationstagecol = generatecell()
+var FirstInterviewcol = generatecell()
+var SecondInterviewcol = generatecell()
+var Rejectcol = generatecell()
+var Offercol = generatecell()
+
+
+rolecol.innerHTML=rowtoload
+departmentscol.innerHTML=department
+if(row1!==null) {
+commentcol.innerHTML=row1.Comment
+FirstInterviewcol.innerHTML=row1.FirstInterview
+SecondInterviewcol.innerHTML=row1.SecondInterview
+Rejectcol.innerHTML=row1.Reject
+Offercol.innerHTML=row1.Offer
+if( row1.daterequested!==undefined) { daterequestedcol.innerHTML=row1.daterequested }
+if( row1.number!==undefined) {numbercol.innerHTML=row1.number }
+ }
+
+
+
+row.appendChild(numbercol)
+row.appendChild(rolecol)
+row.appendChild(applicationscol)
+row.appendChild(departmentscol)
+row.appendChild(commentcol)
+row.appendChild(daterequestedcol)
+row.appendChild(Applicationstagecol)
+row.appendChild(FirstInterviewcol)
+row.appendChild(SecondInterviewcol)
+row.appendChild(Rejectcol)
+row.appendChild(Offercol)
+table.appendChild(row)
+}
+
+generaterow("Java Developer", "Service Op")
+generaterow("Project Manager", "TBC")
+generaterow("Technical", "Automated Testing")
+generaterow("System Engineer", "It Ops")
+generaterow("DevOps", "PMO")
+generaterow("PMO Manager", "PMO")
+generaterow("PMO Analyst", "PMO")
+generaterow("DBA Oracle", "PMO")
+
+
+</script>
+
+</body>
+
+</HTML>

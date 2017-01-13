@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<HTML>
+
+	<head>
+		<font face="Arial Bold" color="black" align="centre">
+		<link rel="stylesheet" href="CUI/css/cui.css"/>
+<strong> Edit the recruitment tracker </strong>
+<!DOCTYPE html>
+<style>
+	dropbtn {
+	    background-color: #c9c9c9;
+	    color: white;
+	    padding: 16px;
+	    font-size: 16px;
+	    border: none;
+	    cursor: pointer;
+	}
+
+	.dropbtn:hover, .dropbtn:focus {
+	    background-color #636e7f;
+	}
+
+	.dropdown {
+	    position: relative;
+	    display: inline-block;
+	}
+
+	.dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #f9f9f9;
+	    min-width: 160px;
+	    overflow: auto;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	.dropdown-content a {
+	    color: black;
+	    padding: 12px 16px;
+	    text-decoration: none;
+	    display: block;
+	}
+7
+	.dropdown a:hover {background-color: #f1f1f1}
+
+	.show {display:block;}
+	</style>
+
+</head>
+<body>
+	<br>
+<form id="recruitmentOverviewUpdate" action="contact.php" method="POST" label class="cui-label">
+	Update number:
+	 <br>
+	 <input id="UpdateNumber" type="text" name="Comment" label class="cui-label">
+	 <br>
+  Add application:
+  <br>
+    <input type="text" name="Application"  id="Application" label class="cui-label">
+  <br>
+  Update Comment:<br>
+  <input id="UpdateComment" type="text" name="Comment" label class="cui-label">
+  <br>
+  Update First Interview:<br>
+  <input type="text" id="FirstInterview" name="FirstInterview" label class="cui-label">
+  <br>
+    Update Second Interview:<br>
+  <input type="text" id="SecondInterview" name="SecondInterview" label class="cui-label">
+  <br>
+    Update Reject:<br>
+  <input type="text" id="Reject" name="Reject" >
+  <br>
+    Update Offer:<br>
+  <input type="text" id="Offer" name="Offer" > <br>
+	Update Date Requested <br>
+	<input type="text" id="DateRequested" name="DateRequested" >
+  <br>
+		Update Application Stage <br>
+	<input type="text" id="UpdateApplicationStage" name="UpdateApplicationStage"> <br>
+	<br>
+</form>
+
+
+<link rel="stylesheet" href="CUI/css/cui.css"/>
+<select id = "dropdown" onchange="load()">
+<option value = "Java Developer">Change Java Developer </option>
+<option value = "Project Manager"> Change Project Manager </option>
+<option value = "Technical"> Change Technical Tester </option>
+<option value = "System Engineer">Change System Engineer</option>
+<option value = "DevOps">Change DevOps </option>
+<option value = "PMO Manager">Change PMO Manager </option>
+<option value = "PMO Analyst">Change PMO Analyst </option>
+<option value = "DBA Oracle">Change DBA Oracle</option>
+</select>
+
+
+<button ondblclick="store()"  id="saveBtn" type="button" class="cui-button">Save</button>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Main%20Page%20Draft%207.html"> <button class="cui-button">Cancel</button> </a>
+
+
+
+<script>
+	function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+	}
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	}
+
+	function store() {
+		var Updatenumber = (document.getElementById("UpdateNumber").value)
+		var AddApp = (document.getElementById("Application").value)
+		var UpdateComment = (document.getElementById("UpdateComment").value)
+		var FirstInterview = (document.getElementById("FirstInterview").value)
+		var SecondInterview = (document.getElementById("SecondInterview").value)
+		var Reject = (document.getElementById("Reject").value)
+		var Offer = (document.getElementById("Offer").value)
+		var daterequested = (document.getElementById("DateRequested").value)
+		var ApplicationStage = (document.getElementById("UpdateApplicationStage").value)
+		var Application1 = (document.getElementById("Application").value)
+		var  Application = {Title: Application1, Comment: UpdateComment, FirstInterview: FirstInterview, SecondInterview: SecondInterview,
+		Reject: Reject, Offer: Offer, number: Updatenumber, daterequested: daterequested, AppStage: ApplicationStage}
+		var Applicationstring = JSON.stringify(Application)
+		localStorage.setItem (document.getElementById("dropdown").value, Applicationstring)
+		window.location = "file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Main%20Page%20Draft%207.html";
+
+	}
+
+function load() {
+	clear()
+ 	var loading = JSON.parse(localStorage.getItem(document.getElementById("dropdown").value))
+	console.log(loading)
+	if (loading!=undefined) {
+	if(loading.Application!==undefined){ document.getElementById("Application")}
+	if( loading.number!==undefined) { document.getElementById("UpdateNumber").value = loading.number}
+	if( loading.FirstInterview!==undefined) {document.getElementById("FirstInterview").value = loading.FirstInterview}
+	if( loading.SecondInterview!==undefined) {document.getElementById("SecondInterview").value = loading.SecondInterview}
+	if( loading.Offer!==undefined) {document.getElementById("Offer").value = loading.Offer}
+	if( loading.Reject!==undefined) {document.getElementById("Reject").value = loading.Reject}
+	if( loading.Title!==undefined)	{document.getElementById("Application").value = loading.Title}
+	if( loading.Comment!==undefined){document.getElementById("UpdateComment").value = loading.Comment}
+	if( loading.daterequested!==undefined){document.getElementById("DateRequested").value = loading.daterequested}
+	if( loading.ApplicationStage!==undefined){document.getElementById("UpdateApplicationStage").value = loading.ApplicationStage}
+
+}
+}
+load()
+
+function clear() {
+ document.getElementById("UpdateNumber").value = ""
+ document.getElementById("Application").value = ""
+document.getElementById("UpdateComment").value = ""
+document.getElementById("FirstInterview").value = ""
+document.getElementById("SecondInterview").value = ""
+document.getElementById("Reject").value = ""
+document.getElementById("Offer").value = ""
+document.getElementById("DateRequested").value = ""
+document.getElementById("UpdateApplicationStage").value = ""
+
+}
+</script>
+
+</body>
+</HTML>

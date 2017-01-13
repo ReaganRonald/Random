@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<br />
+<br />
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+<br />
+.dropbtn {
+  background-color: #bcbfc4;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.table {
+margin-bottom:15px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #b9bfc9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #909293;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: }
+
+.show {display:block;}
+</style>
+</head>
+<body>
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Edit</button>
+<div id="myDropdown" class="dropdown-content">
+  <a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Main%20Page%20Draft%204.html" class="button">Return to the recruitment tracker</a>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%204.html" class="button">Edit Java Developer</a>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20System%20Engineer%20Draft%201.html" class="button">Edit System Engineer</a>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Project%20Manager.html" class="button">Edit Project Manager</a>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20PMO%20Analyst.html" class="button">Edit PMO Analyst</a>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20PMO%20Manager.html" class="button">Edit PMO Manager</a>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20DevOps.html" class="button">Edit Dev </a>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Technical%20Tester.html" class="button">Edit Technical Tester</a>
+<a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20DBA%20Oracle.html" class="button">Edit DBA - Oracle</a>
+
+</div>
+</div>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  var i;
+  for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}
+}
+</script>

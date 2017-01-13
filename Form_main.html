@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<HTML>
+
+	<head> <font face="Arial Bold" color="black" align="centre">
+<strong> Edit the recruitment tracker </strong>
+<!DOCTYPE html>
+<html>
+<body>
+<form id="recruitmentOverviewUpdate" action="contact.php" method="POST">
+  Add application:
+  <br>
+    <input type="text" name="Application"  id="Application">
+  <br>
+  Update Comment:<br>
+  <input type="text" name="Comment" >
+  <br>
+  Update Application:<br>
+  <input type="text" name="Application" >
+  <br>
+  Update First Interview:<br>
+  <input type="text" name="FirstInterview" >
+  <br>
+    Update Second Interview:<br>
+  <input type="text" name="SecondInterview" >
+  <br>
+    Update Reject:<br>
+  <input type="text" name="Reject" >
+  <br>
+    Update Offer:<br>
+  <input type="text" name="Offer" >
+  <br>
+   <button onclick="store()" type="button">Save</button>
+   </form>
+   <script  type="text/javascript">
+  function store(){
+     var inputEmail= document.getElementById("Application");
+     localStorage.setItem("Application", Application.value);
+    }
+		<button onclick="store()" type="button">Save</button>
+		function store(){
+			 var inputEmail= document.getElementById("Comment");
+			 localStorage.setItem("Comment", Comment.value);
+			}
+			<button onclick="store()" type="button">Save</button>
+			function store(){
+				 var inputEmail= document.getElementById("FirstInterview");
+				 localStorage.setItem("FirstInterview", FirstInterview.value);
+				}
+				<button onclick="store()" type="button">Save</button>
+				function store(){
+					 var inputEmail= document.getElementById("SecondInterview");
+					 localStorage.setItem("SecondInterview", SecondInterview.value);
+					}
+</script>
+
+
+</script>
+  <style>
+.dropbtn {
+    background-color: #c9c9c9;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color #636e7f;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+</head>
+<body>
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#JavaDeveloper">Update Java Developer</a>
+    <a href="#ProjectManager">Update Project Manager</a>
+    <a href="#TechnicalTester">Update Technical Tester Snr</a>
+    <a href="#SystemEngineer">Update System Engineer</a>
+    <a href="#DevOps">Update DevOps</a>
+    <a href="#PMO Manager">Update PMO Manager</a>
+    <a href="#PMO Analyst">Update PMO Analyst</a>
+    <a href="#DBA Oracle">Update DBA Oracle</a>
+  </div>
+</div>
+
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</form>
+</body>
+</html>
+
+</body>
+</html>
+
+    </body>
+</HTML>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<HTML>
+
+	<head>
+<link rel="stylesheet" href="CUI/css/cui.css"/>
+
+<style>
+
+body {
+	padding: 30px;
+}
+
+.dropbtn {
+    background-color: #bcbfc4;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.table {
+  margin-bottom:15px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #b9bfc9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #909293;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: }
+
+.show {display:block;}
+</style>
+</head>
+<body>
+	<ul>
+		<li><a class="" href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Main%20Page%20Draft%205.html"> Recruitment Tracker</a></li>
+		<li><a class="" href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%205.html">Java Developer</a></li>
+		<li><a href="#contact">Project Manager</a></li>
+		<li><a href="#about">PMO Analyst</a></li>
+		<li><a href="#about">PMO Manager</a></li>
+		<li><a href="#about">DevOps</a></li>
+		<li><a href="#about">Technical Tester</a></li>
+		<li><a href="#about">DBA Oracle</a></li>
+	</ul>
+<strong> <h1 align="center"> <u> System Engineer </u> </strong> </h1 align="centre">
+</head>
+<br />
+<body>
+<br />
+<input type="text" name="search" placeholder="Search">
+<br />
+<br />
+<table id="Table" class="cui-data-table" border "black">
+	<thead>
+<tr class="cui-data-table__head-row">
+ <th class="cui-data-table__head-cell"> Name and Level </th> <th class="cui-data-table__head-cell"> Source </th> <th class="cui-data-table__head-cell">  CV & Prescreen </th> <th class="cui-data-table__head-cell"> Telephone Interview </th> <th class="cui-data-table__head-cell"> Face to Face Interview </th> <th class="cui-data-table__head-cell"> HR Test </th> <th class="cui-data-table__head-cell"> Feedback </th> <th class="cui-data-table__head-cell"> Allocation Discussion </th>     <th class="cui-data-table__head-cell"> Key Skills </th> <th class="cui-data-table__head-cell"> Reject </th> <th class="cui-data-table__head-cell"> Offer </th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<div class="dropdown">
+
+
+  </div>
+</div>
+<button class="cui-button" onclick = "clearall()" > Clear </button>
+ <a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Form_main%20Draft%202.html"><button class="cui-button" >Update above table </button> </a>
+
+
+
+<script src="menu-toggle.js"></script>
+<script>
+
+
+function generaterow(rowtoload, department){
+	function generatecell(){
+var cell = document.createElement("td");
+cell.className = "cui-data-table__cell";
+return cell
+	}
+	var row1  = JSON.parse( localStorage.getItem(rowtoload))
+console.log(row1)
+var table = document.querySelector("#Table tbody")
+var row = document.createElement("tr")
+row.className="cui-data-table__row";
+
+
+
+function clearall() {
+	localStorage.clear();
+	window.location.reload();
+}
+</script>
+
+</body>
+</html>
+
+    </body>
+
+</HTML>

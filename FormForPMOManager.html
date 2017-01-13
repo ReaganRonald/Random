@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<HTML>
+
+	<head>
+		<font face="Arial Bold" color="black" align="centre">
+		<link rel="stylesheet" href="CUI/css/cui.css"/>
+<strong> Edit the Java Developer Page </strong>
+<!DOCTYPE html>
+<style>
+	dropbtn {
+	    background-color: #c9c9c9;
+	    color: white;
+	    padding: 16px;
+	    font-size: 16px;
+	    border: none;
+	    cursor: pointer;
+	}
+
+	.dropbtn:hover, .dropbtn:focus {
+	    background-color #636e7f;
+	}
+
+	.dropdown {
+	    position: relative;
+	    display: inline-block;
+	}
+
+	.dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #f9f9f9;
+	    min-width: 160px;
+	    overflow: auto;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	.dropdown-content a {
+	    color: black;
+	    padding: 12px 16px;
+	    text-decoration: none;
+	    display: block;
+	}
+7
+	.dropdown a:hover {background-color: #f1f1f1}
+
+	.show {display:block;}
+	</style>
+
+</head>
+<body>
+	<br>
+<form id="UpdateJavaDev" action="contact.php" method="POST" label class="cui-label">
+	Add Name:
+	 <br>
+	 <input id="AddName" type="text" name="AddName" label class="cui-label">
+	 <br>
+  Update Source:
+  <br>
+    <input type="text" name="UpdateSource"  id="Source" label class="cui-label">
+  <br>
+  Update CV and Prescreen:<br>
+  <input id="UpdateCV&PrintScreen" type="text" name="CV&PrintScreen" label class="cui-label">
+  <br>
+  Add Telephone Interview:<br>
+  <input type="text" id="AddTelephoneInterview" name="TelephoneInterview" label class="cui-label">
+  <br>
+	Update Face To Face
+	<br>
+	<input type="text" id="FaceToFace" name="FaceToFace" > <br>
+    Update HR Test:<br>
+  <input type="text" id="UpdateHRTest" name="HRTest" label class="cui-label">
+  <br>
+    Update Feedback:<br>
+  <input type="text" id="UpdateAllocation" name="Allocation" >
+  <br>
+    Update Key Skills:<br>
+  <input type="text" id="UpdateKeySkills" name="KeySkills" > <br>
+	Reject <br>
+	<input type="text" id="UpdateReject" name="Reject" > <br>
+	Offer
+	<br>
+	<input type="text" id="UpdateOffer" name="Offer" > <br>
+  <br>
+</form>
+
+
+<select>
+	<option> Add New Row </option>
+	<option> Update Current </option>
+</select>
+
+
+
+<button onclick="store()" id="saveBtn" type="button">Save</button>
+
+<script>
+	function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+	}
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	}
+
+	function store() {
+		var UpdateName = (document.getElementById("UpdateName").value)
+		var UpdateSource = (document.getElementById("UpdateSource").value)
+		var UpdateCV&Prescreen = (document.getElementById("UpdateCV&Prescreen").value)
+		var UpdateTelephoneInterview = (document.getElementById("UpdateTelephoneInterview").value)
+		var Face = (document.getElementById("UpdateFaceToFace").value)
+		var Reject = (document.getElementById("Reject").value)
+		var Offer = (document.getElementById("Offer").value)
+		var  Application = {Name: updatename, Source: source, UpdateCV&Prescreen: CV&Prescreen, UpdateTelephoneInterview: TelephoneInterview,
+		Reject: Reject, Offer: Offer, Facetoface: Facetoface, Facetoface}
+		var Applicationstring = JSON.stringify(Application)
+		localStorage.setItem (document.getElementById("dropdown").value, Applicationstring)
+		window.location = "file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%205.html";
+
+	}
+
+function load() {
+	clear()
+ 	var loading = JSON.parse(localStorage.getItem(document.getElementById("dropdown").value))
+	console.log(loading)
+	if (loading!=undefined) {
+	if( loading.name!==undefined) { document.getElementById("UpdateName").value = loading.name}
+	if( loading.FirstInterview!==undefined) {document.getElementById("UpdateSource").value = loading.nameandlevel}
+	if( loading.SecondInterview!==undefined) {document.getElementById("UpdateCV&Prescreen").value = loading.CV&Prescreen}
+	if( loading.Reject!==undefined) {document.getElementById("Reject").value = loading.Reject}
+	if( loading.Offer!==undefined) {document.getElementById("Offer").value = loading.Offer}
+
+}
+}
+load()
+
+function clear() {
+ document.getElementById("updatename").value = ""
+ document.getElementById("Application").value = ""
+document.getElementById("UpdateComment").value = ""
+document.getElementById("FirstInterview").value = ""
+document.getElementById("SecondInterview").value = ""
+document.getElementById("Reject").value = ""
+document.getElementById("Offer").value = ""
+document.getElementById("DateRequested").value = ""
+
+
+}
+</script>
+
+</body>
+</HTML>
