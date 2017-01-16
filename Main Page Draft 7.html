@@ -58,10 +58,10 @@ body {
 
 
 			<ul>
-			  <li><a class="" href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%205.html">Java Developer</a></li>
+			  <li><a class="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%206.html" href="">Java Developer</a></li>
 			  <li><a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/System_Engineer_Draft2.html">System Engineer</a></li>
 			  <li><a href="file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Project%20Manager%20Draft%202.html">Project Manager</a></li>
-			  <li><a href="#about">PMO Analyst</a></li>
+			  <li><a href="">PMO Analyst</a></li>
 				<li><a href="#about">PMO Manager</a></li>
 				<li><a href="#about">DevOps</a></li>
 				<li><a href="#about">Technical Tester</a></li>
@@ -77,6 +77,7 @@ body {
 <br />
 <input type="text" id="Search" name="search" placeholder="Search Google">
 <button class="cui-button" id="SearchOnclick" onclick="searchgoogle()"> Search </button>
+<button class="cui-button" id="GoToGoogle" onclick="go2google()"> Go To Google </button>
 
 <br />
 <br />
@@ -181,7 +182,10 @@ function searchgoogle(){
 	var urlto = "https://www.google.co.uk/webhp?hl=en&sa=X&ved=0ahUKEwjbxdiV977RAhWDfiwKHZq-A3YQPAgD#hl=en&q="+google
 	 window.open(urlto, '_blank');
 }
-
+function go2google(){
+		 		 var googleurl = "https://www.google.co.uk/"
+				 window.open(googleurl, '_blank');
+}
 </script>
 
 </body>
