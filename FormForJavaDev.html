@@ -94,14 +94,14 @@
 <form id="UpdateJavaDev" action="contact.php" method="POST" label class="cui-label">
 	Add Name:
 	 <br>
-	 <input id="AddName" type="text" name="AddName" label class="cui-label">
+	 <input id="UpdateName" type="text" name="AddName" label class="cui-label">
 	 <br>
   Update Source:
   <br>
-    <input type="text" name="UpdateSource"  id="Source" label class="cui-label">
+    <input type="text" name="UpdateSource"  id="UpdateSource" label class="cui-label">
   <br>
   Update CV and Prescreen:<br>
-  <input id="UpdateCV&PrintScreen" type="text" name="CV&PrintScreen" label class="cui-label">
+  <input id="UpdateCVPrintScreen" type="text" name="CV&PrintScreen" label class="cui-label">
   <br>
   Add Telephone Interview:<br>
   <input type="text" id="AddTelephoneInterview" name="TelephoneInterview" label class="cui-label">
@@ -126,73 +126,55 @@
 </form>
 
 
+<label class="cui-label"> Create New  <input type="checkbox" onchange="adddropdown()"  /><i></i> Create New Row </label>
 <select>
-	<option> Add New Row </option>
-	<option> Update Current </option>
-</select>
+<option>
 
+</option>
+</select>
 
 
 <button onclick="store()" id="saveBtn" type="button">Save</button>
 
 <script>
-	function myFunction() {
-			document.getElementById("myDropdown").classList.toggle("show");
-	}
-	window.onclick = function(event) {
-		if (!event.target.matches('.dropbtn')) {
 
-			var dropdowns = document.getElementsByClassName("dropdown-content");
-			var i;
-			for (i = 0; i < dropdowns.length; i++) {
-				var openDropdown = dropdowns[i];
-				if (openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
-			}
-		}
-	}
 
 	function store() {
-		var UpdateName = (document.getElementById("UpdateName").value)
-		var UpdateSource = (document.getElementById("UpdateSource").value)
-		var UpdateCV&Prescreen = (document.getElementById("UpdateCV&Prescreen").value)
-		var UpdateTelephoneInterview = (document.getElementById("UpdateTelephoneInterview").value)
-		var Face = (document.getElementById("UpdateFaceToFace").value)
-		var Reject = (document.getElementById("Reject").value)
-		var Offer = (document.getElementById("Offer").value)
-		var  Application = {Name: updatename, Source: source, UpdateCV&Prescreen: CV&Prescreen, UpdateTelephoneInterview: TelephoneInterview,
-		Reject: Reject, Offer: Offer, Facetoface: Facetoface, Facetoface}
-		var Applicationstring = JSON.stringify(Application)
-		localStorage.setItem (document.getElementById("dropdown").value, Applicationstring)
-		window.location = "file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%205.html";
-
+		// var UpdateName = (document.getElementById("UpdateName").value)
+		// var UpdateSource = (document.getElementById("UpdateSource").value)
+		// var UpdateCVPrescreen = (document.getElementById("UpdateCV&Prescreen").value)
+		// var UpdateTelephoneInterview = (document.getElementById("UpdateTelephoneInterview").value)
+		// var Face = (document.getElementById("UpdateFaceToFace").value)
+		// var Reject = (document.getElementById("Reject").value)
+		// var Offer = (document.getElementById("Offer").value)
+		// var  Application = {Name: updatename, Source: source, UpdateCVPrescreen: CVPrescreen, UpdateTelephoneInterview: TelephoneInterview,
+		// Reject: Reject, Offer: Offer, Facetoface: Facetoface, Facetoface}
+		// var Applicationstring = JSON.stringify(Application)
+		// localStorage.setItem (document.getElementById("dropdown").value, Applicationstring)
+		// window.location = "file:///C:/Users/rmcsorley/Documents/Recruitment%20Log/Edit%20Java%20Developer%20Draft%206.html";
 	}
+function adddropdown()
+{}
 
 function load() {
-	clear()
- 	var loading = JSON.parse(localStorage.getItem(document.getElementById("dropdown").value))
-	console.log(loading)
-	if (loading!=undefined) {
-	if( loading.name!==undefined) { document.getElementById("UpdateName").value = loading.name}
-	if( loading.FirstInterview!==undefined) {document.getElementById("UpdateSource").value = loading.nameandlevel}
-	if( loading.SecondInterview!==undefined) {document.getElementById("UpdateCV&Prescreen").value = loading.CV&Prescreen}
-	if( loading.Reject!==undefined) {document.getElementById("Reject").value = loading.Reject}
-	if( loading.Offer!==undefined) {document.getElementById("Offer").value = loading.Offer}
-
-}
+// 	clear()
+//  	var loading = JSON.parse(localStorage.getItem(document.getElementById("dropdown").value))
+// 	console.log(loading)
+// 	if (loading!=undefined) {
+// 	if( loading.name!==undefined) { document.getElementById("UpdateName").value = loading.name}
+// 	if( loading.FirstInterview!==undefined) {document.getElementById("UpdateSource").value = loading.nameandlevel}
+// 	if( loading.SecondInterview!==undefined) {document.getElementById("UpdateCV&Prescreen").value = loading.CVPrescreen}
+// 	if( loading.Reject!==undefined) {document.getElementById("Reject").value = loading.Reject}
+// 	if( loading.Offer!==undefined) {document.getElementById("Offer").value = loading.Offer}
+//
+// }
 }
 load()
 
 function clear() {
- document.getElementById("updatename").value = ""
- document.getElementById("Application").value = ""
-document.getElementById("UpdateComment").value = ""
-document.getElementById("FirstInterview").value = ""
-document.getElementById("SecondInterview").value = ""
-document.getElementById("Reject").value = ""
-document.getElementById("Offer").value = ""
-document.getElementById("DateRequested").value = ""
+ document.getElementById("UpdateName").value = ""
+ document.getElementById("UpdateSource").value = ""
+document.getElementById("UpdateCVPrintScreen").value = ""
 
 
 }
